@@ -4,6 +4,65 @@ document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
     }
 
+    // 1.b Theme: Dark/Light mode toggle
+    const storageKey = 'prefers-dark';
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIconId = 'theme-icon';
+    const themeLabelId = 'theme-label';
+
+    function applyTheme(isDark) {
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        if (themeToggleBtn) {
+            themeToggleBtn.setAttribute('aria-pressed', String(isDark));
+            themeToggleBtn.setAttribute('aria-label', isDark ? 'Désactiver le mode sombre' : 'Activer le mode sombre');
+            const iconEl = document.getElementById(themeIconId);
+            const labelEl = document.getElementById(themeLabelId);
+            if (iconEl) iconEl.textContent = isDark ? '🌙' : '☀️';
+            if (labelEl) labelEl.textContent = isDark ? 'Sombre' : 'Clair';
+        }
+    }
+
+    function readSystemPref() {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    (function initTheme() {
+        try {
+            const stored = localStorage.getItem(storageKey);
+            let isDark;
+            if (stored === 'true' || stored === 'false') {
+                isDark = stored === 'true';
+            } else {
+                isDark = readSystemPref();
+            }
+            applyTheme(isDark);
+
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    const currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                    const newIsDark = !currentlyDark;
+                    applyTheme(newIsDark);
+                    try { localStorage.setItem(storageKey, String(newIsDark)); } catch(e){}
+                });
+            }
+
+            if (window.matchMedia) {
+                const mq = window.matchMedia('(prefers-color-scheme: dark)');
+                const onChange = e => {
+                    const stored = localStorage.getItem(storageKey);
+                    if (stored === null) {
+                        applyTheme(e.matches);
+                    }
+                };
+                if (typeof mq.addEventListener === 'function') {
+                    mq.addEventListener('change', onChange);
+                } else if (typeof mq.addListener === 'function') {
+                    mq.addListener(onChange);
+                }
+            }
+        } catch (e) {}
+    })();
+
     // 2. Navbar Scroll Effects
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
