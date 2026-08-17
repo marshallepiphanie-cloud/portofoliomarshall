@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Administration | Démo Vecteur Digital</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- ChartJS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background glows -->
+    <div class="blob-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Main Admin Container -->
+    <div class="admin-app">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon"><i data-lucide="shield-check"></i></span>
+                    <span class="logo-text">Vecteur<span class="gradient-text">Admin</span></span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-btn active" data-tab="home-tab">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Aperçu système</span>
+                </button>
+                <button class="nav-btn" data-tab="users-tab">
+                    <i data-lucide="user-cog"></i>
+                    <span>Utilisateurs & Rôles</span>
+                </button>
+                <button class="nav-btn" data-tab="charts-tab">
+                    <i data-lucide="activity"></i>
+                    <span>Performances</span>
+                </button>
+                <button class="nav-btn" data-tab="settings-tab">
+                    <i data-lucide="sliders"></i>
+                    <span>Paramètres</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="../../index.html" class="btn-back-portfolio">
+                    <i data-lucide="arrow-left"></i>
+                    <span>Retour Portfolio</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1 id="tab-title">Aperçu système</h1>
+                <div class="header-actions">
+                    <div class="badge system-status">
+                        <span class="badge-dot green"></span>
+                        <span>Système Opérationnel</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- TAB 1: OVERVIEW SYSTEM -->
+            <section class="tab-pane active" id="home-tab">
+                <!-- KPI system metrics -->
+                <div class="kpi-grid">
+                    <div class="kpi-card glass-card">
+                        <div class="kpi-icon blue"><i data-lucide="users"></i></div>
+                        <div class="kpi-data">
+                            <span class="kpi-title">Utilisateurs inscrits</span>
+                            <span class="kpi-value">1 240</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card glass-card">
+                        <div class="kpi-icon green"><i data-lucide="activity"></i></div>
+                        <div class="kpi-data">
+                            <span class="kpi-title">Sessions Actives</span>
+                            <span class="kpi-value">48</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card glass-card">
+                        <div class="kpi-icon purple"><i data-lucide="database"></i></div>
+                        <div class="kpi-data">
+                            <span class="kpi-title">Charge Base de Données</span>
+                            <span class="kpi-value">12%</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card glass-card">
+                        <div class="kpi-icon yellow"><i data-lucide="alert-circle"></i></div>
+                        <div class="kpi-data">
+                            <span class="kpi-title">Alertes en attente</span>
+                            <span class="kpi-value">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats summary and log activity -->
+                <div class="dashboard-details">
+                    <div class="chart-container glass-card">
+                        <h3 class="card-title">Trafic Utilisateurs (24 dernières heures)</h3>
+                        <div class="canvas-wrapper">
+                            <canvas id="traffic-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="log-container glass-card">
+                        <h3 class="card-title">Journal d'Événements</h3>
+                        <div class="log-list" id="log-list">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: USERS & ROLES -->
+            <section class="tab-pane" id="users-tab">
+                <div class="table-actions glass-card">
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="user-search" placeholder="Rechercher par nom, e-mail ou rôle...">
+                    </div>
+                    <button class="btn btn-primary" id="btn-add-user">
+                        <i data-lucide="plus"></i>
+                        <span>Créer un Utilisateur</span>
+                    </button>
+                </div>
+
+                <div class="table-container glass-card">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Avatar</th>
+                                <th>Utilisateur</th>
+                                <th>Adresse E-mail</th>
+                                <th>Rôle</th>
+                                <th>Statut de compte</th>
+                                <th class="text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-table-body">
+                            <!-- Injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- TAB 3: SYSTEM PERFORMANCES -->
+            <section class="tab-pane" id="charts-tab">
+                <div class="stats-grid">
+                    <div class="chart-card glass-card">
+                        <h3 class="card-title">Temps de Réponse API (ms)</h3>
+                        <div class="canvas-wrapper">
+                            <canvas id="response-time-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card glass-card">
+                        <h3 class="card-title">Utilisation CPU & Mémoire (%)</h3>
+                        <div class="canvas-wrapper">
+                            <canvas id="cpu-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: SYSTEM SETTINGS -->
+            <section class="tab-pane" id="settings-tab">
+                <div class="settings-box glass-card">
+                    <h3 class="card-title">Paramètres de Configuration</h3>
+                    <form id="settings-form" class="settings-form">
+                        <div class="settings-group">
+                            <div class="settings-info">
+                                <h4>Mode Maintenance</h4>
+                                <p>Bloque l'accès aux clients et affiche une page de maintenance générale.</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="maintenance-mode">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="settings-group">
+                            <div class="settings-info">
+                                <h4>Notifications Système par E-mail</h4>
+                                <p>Recevoir un récapitulatif quotidien des alertes de sécurité et logs d'accès.</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="system-notifications" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="settings-group">
+                            <div class="settings-info">
+                                <h4>Sauvegarde Automatique de la DB</h4>
+                                <p>Exporter et sauvegarder la base de données SQL toutes les 24 heures.</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="db-backup" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="api-key-section">
+                            <h4>Clé d'API Générale</h4>
+                            <p>Utilisez cette clé pour authentifier vos services externes auprès du backend.</p>
+                            <div class="api-key-wrapper">
+                                <input type="text" id="api-key-field" readonly value="vt_live_9a87d6b5e4c3d2b1a0">
+                                <button type="button" class="btn btn-secondary" id="btn-regen-api">Générer à nouveau</button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">
+                            <span>Enregistrer les paramètres</span>
+                            <i data-lucide="check"></i>
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- USER MODAL (Add & Edit) -->
+    <div class="modal" id="user-modal">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h3 id="user-modal-title">Créer un Utilisateur</h3>
+                <button class="modal-close" id="user-modal-close"><i data-lucide="x"></i></button>
+            </div>
+            <form id="user-form" class="modal-form">
+                <input type="hidden" id="user-id-field">
+                <div class="form-group">
+                    <input type="text" id="user-name" required placeholder=" ">
+                    <label for="user-name">Nom de l'utilisateur</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="user-email" required placeholder=" ">
+                    <label for="user-email">Adresse E-mail</label>
+                </div>
+                <div class="form-group">
+                    <select id="user-role" required>
+                        <option value="Administrateur">Administrateur</option>
+                        <option value="Éditeur">Éditeur</option>
+                        <option value="Utilisateur">Utilisateur</option>
+                    </select>
+                    <label for="user-role">Rôle assigné</label>
+                </div>
+                <div class="form-group">
+                    <select id="user-status" required>
+                        <option value="Actif">Actif</option>
+                        <option value="Suspendu">Suspendu</option>
+                    </select>
+                    <label for="user-status">Statut initial</label>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="btn-cancel-user">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+</html>

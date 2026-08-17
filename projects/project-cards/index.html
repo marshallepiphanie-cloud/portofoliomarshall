@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projets — Site vitrine &amp; E-commerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+  <div class="portfolio-bar">
+    <div class="portfolio-bar-inner">
+      <a href="../../index.html" class="back-portfolio-btn">
+        <i data-lucide="arrow-left"></i>
+        <span>Retour Portfolio</span>
+      </a>
+    </div>
+  </div>
+
+  <main class="stage">
+    <p class="instruction">▼ Cliquez sur un projet pour l'ouvrir</p>
+
+    <div class="cards-row" id="cardsRow">
+
+      <!-- ============ CARTE A — Site Vitrine ============ -->
+      <article class="project-card" data-project="a" id="cardA">
+        <div class="card-bg card-bg-a"></div>
+        <div class="card-sheen"></div>
+
+        <span class="card-badge">site vitrine</span>
+
+        <button class="card-close" data-action="close" aria-label="Fermer">✕</button>
+
+        <div class="card-content">
+          <h2 class="card-title" data-full-text="Hélios Énergie &amp; BTP"></h2>
+          <p class="card-desc">
+            Site vitrine pour une entreprise de solaire et de BTP&nbsp;: galerie de réalisations
+            filtrable, présentation des services et formulaire de contact animé.
+          </p>
+          <a href="../site-vitrine/index.html" class="card-link">
+            Voir le projet <i data-lucide="arrow-up-right"></i>
+          </a>
+        </div>
+
+        <button class="card-overlay" data-action="open" aria-label="Ouvrir Hélios Énergie et BTP"></button>
+      </article>
+
+      <!-- ============ CARTE B — E-commerce ============ -->
+      <article class="project-card" data-project="b" id="cardB">
+        <div class="card-bg card-bg-b"></div>
+        <div class="card-sheen"></div>
+
+        <span class="card-badge">e-commerce</span>
+
+        <button class="card-close" data-action="close" aria-label="Fermer">✕</button>
+
+        <div class="card-content">
+          <h2 class="card-title" data-full-text="Kanza Market"></h2>
+          <p class="card-desc">
+            Boutique en ligne complète&nbsp;: catalogue filtrable par catégorie, panier
+            interactif, aperçu rapide des produits et commande simulée.
+          </p>
+          <a href="../e-commerce/index.html" class="card-link">
+            Voir le projet <i data-lucide="arrow-up-right"></i>
+          </a>
+        </div>
+
+        <button class="card-overlay" data-action="open" aria-label="Ouvrir Kanza Market"></button>
+      </article>
+
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

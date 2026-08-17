@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanza Market — Téléphones, ordinateurs, mode &amp; accessoires</title>
+<meta name="description" content="Boutique en ligne démo : téléphones, ordinateurs, vêtements, chaussures et accessoires à prix compétitifs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ BARRE RETOUR PORTFOLIO ============ -->
+<div class="portfolio-bar">
+  <div class="portfolio-bar-inner">
+    <a href="../../index.html" class="back-portfolio-btn">
+      <i data-lucide="arrow-left"></i>
+      <span>Retour Portfolio</span>
+    </a>
+    <span class="demo-tag">Démo boutique — produits fictifs</span>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-top">
+    <div class="header-top-inner">
+      <span><i data-lucide="truck"></i> Livraison sous 48h à Abidjan</span>
+      <span><i data-lucide="shield-check"></i> Paiement 100% sécurisé</span>
+      <span><i data-lucide="rotate-ccw"></i> Retours gratuits sous 30 jours</span>
+    </div>
+  </div>
+
+  <div class="header-main">
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <i data-lucide="menu"></i>
+    </button>
+
+    <a href="#accueil" class="logo">
+      <span class="logo-mark">K</span>
+      <span class="logo-text">Kanza<span class="logo-sub">Market</span></span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#accueil">Accueil</a>
+      <a href="#boutique">Boutique</a>
+      <a href="#promotions">Promotions</a>
+      <a href="#contact-footer">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-box">
+        <i data-lucide="search"></i>
+        <input type="text" id="searchInput" placeholder="Rechercher un produit…">
+      </div>
+      <button class="icon-btn" id="cartToggle" aria-label="Ouvrir le panier">
+        <i data-lucide="shopping-bag"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="accueil">
+    <div class="hero-blob blob-1" aria-hidden="true"></div>
+    <div class="hero-blob blob-2" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">Nouvelle collection</p>
+        <h1 class="hero-title">Tout ce qu'il vous faut,<br><span class="highlight">livré chez vous.</span></h1>
+        <p class="hero-lead">Téléphones, ordinateurs, mode et accessoires — sélectionnés pour durer, au juste prix.</p>
+        <div class="hero-actions">
+          <a href="#boutique" class="btn btn-primary">Découvrir la boutique</a>
+          <a href="#promotions" class="btn btn-outline">Voir les promotions</a>
+        </div>
+      </div>
+
+      <div class="hero-stats" data-reveal>
+        <div class="stat-tile">
+          <span class="stat-value" data-count="12400">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">clients servis</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-value" data-count="48">0</span><span class="stat-suffix">/5</span>
+          <span class="stat-label">note moyenne (sur 5)</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-value" data-count="48">0</span><span class="stat-suffix">h</span>
+          <span class="stat-label">livraison express</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BANDEAU DÉFILANT ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>✦ Livraison en 48h à Abidjan</span>
+      <span>✦ Paiement 100% sécurisé</span>
+      <span>✦ Retours gratuits sous 30 jours</span>
+      <span>✦ Nouveaux produits chaque semaine</span>
+      <span>✦ Support client 7j/7</span>
+      <span>✦ Livraison en 48h à Abidjan</span>
+      <span>✦ Paiement 100% sécurisé</span>
+      <span>✦ Retours gratuits sous 30 jours</span>
+      <span>✦ Nouveaux produits chaque semaine</span>
+      <span>✦ Support client 7j/7</span>
+    </div>
+  </div>
+
+  <!-- ============ BOUTIQUE ============ -->
+  <section class="boutique" id="boutique">
+    <div class="section-inner">
+      <p class="eyebrow" data-reveal>Catalogue</p>
+      <h2 class="section-title" data-reveal>Notre sélection</h2>
+
+      <div class="filter-bar" data-reveal role="tablist" aria-label="Filtrer par catégorie">
+        <button class="filter-chip is-active" data-filter="all" role="tab" aria-selected="true">Tous</button>
+        <button class="filter-chip" data-filter="telephones" role="tab" aria-selected="false">Téléphones</button>
+        <button class="filter-chip" data-filter="ordinateurs" role="tab" aria-selected="false">Ordinateurs</button>
+        <button class="filter-chip" data-filter="vetements" role="tab" aria-selected="false">Vêtements</button>
+        <button class="filter-chip" data-filter="chaussures" role="tab" aria-selected="false">Chaussures</button>
+        <button class="filter-chip" data-filter="accessoires" role="tab" aria-selected="false">Accessoires</button>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>Aucun produit ne correspond à votre recherche.</p>
+
+      <p class="compare-note" id="compareNote" hidden>
+        <i data-lucide="check-square"></i>
+        <span id="compareCount">0</span> produit(s) sélectionné(s) pour comparaison
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ PRODUITS RECOMMANDÉS ============ -->
+  <section class="recommended">
+    <div class="section-inner">
+      <p class="eyebrow" data-reveal>Les mieux notés</p>
+      <h2 class="section-title" data-reveal>Produits recommandés</h2>
+      <p class="recommended-intro" data-reveal>Classement basé sur la note moyenne de chaque article.</p>
+      <div class="recommended-list" id="recommendedList"></div>
+    </div>
+  </section>
+
+  <!-- ============ PROMOTIONS / BANDEAU ============ -->
+  <section class="promo-banner" id="promotions">
+    <div class="promo-wheel" aria-hidden="true"></div>
+    <div class="section-inner promo-inner" data-reveal>
+      <div>
+        <p class="eyebrow promo-eyebrow">Offre limitée</p>
+        <h2 class="promo-title">Jusqu'à −30% sur une sélection</h2>
+        <p class="promo-text">Profitez des prix réduits sur les téléphones et ordinateurs reconditionnés, tant qu'il y en a.</p>
+      </div>
+      <a href="#boutique" class="btn btn-light">Voir les offres →</a>
+    </div>
+  </section>
+
+  <!-- ============ STACK TECHNIQUE ============ -->
+  <section class="tech-stack" id="stack">
+    <div class="tech-blob tech-blob-1" aria-hidden="true"></div>
+    <div class="tech-blob tech-blob-2" aria-hidden="true"></div>
+    <div class="section-inner">
+      <p class="eyebrow light" data-reveal>Sous le capot</p>
+      <h2 class="section-title light" data-reveal>Stack technique recommandée</h2>
+      <p class="tech-intro" data-reveal>
+        L'architecture que je recommande pour une boutique en ligne de ce type : pensée
+        pour la performance, la sécurité des paiements et la montée en charge.
+      </p>
+      <div class="tech-grid" id="techGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ NEWSLETTER ============ -->
+  <section class="newsletter">
+    <div class="section-inner newsletter-inner" data-reveal>
+      <div>
+        <h2 class="section-title small">Ne manquez aucune offre</h2>
+        <p class="hero-lead">Recevez nos nouveautés et promotions par e-mail, une fois par semaine maximum.</p>
+      </div>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="votre@e-mail.com" required id="newsletterEmail">
+        <button type="submit" class="btn btn-primary">S'abonner</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" id="contact-footer">
+  <div class="section-inner footer-grid">
+    <div class="footer-col footer-brand">
+      <a href="#accueil" class="logo">
+        <span class="logo-mark">K</span>
+        <span class="logo-text">Kanza<span class="logo-sub">Market</span></span>
+      </a>
+      <p>Boutique en ligne démo présentant une expérience e-commerce complète : catalogue, panier et paiement simulé.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+        <a href="https://wa.me/2250500554826" target="_blank" rel="noopener" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Catégories</h4>
+      <a href="#" data-footer-filter="telephones">Téléphones</a>
+      <a href="#" data-footer-filter="ordinateurs">Ordinateurs</a>
+      <a href="#" data-footer-filter="vetements">Vêtements</a>
+      <a href="#" data-footer-filter="chaussures">Chaussures</a>
+      <a href="#" data-footer-filter="accessoires">Accessoires</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Service client</h4>
+      <a href="#">Suivi de commande</a>
+      <a href="#">Livraison &amp; retours</a>
+      <a href="#">Guide des tailles</a>
+      <a href="#">Foire aux questions</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:contact@kanza-market.ci"><i data-lucide="mail"></i> contact@kanza-market.ci</a>
+      <a href="https://wa.me/2250500554826" target="_blank" rel="noopener"><i data-lucide="message-circle"></i> 05 00 55 48 26</a>
+      <span><i data-lucide="map-pin"></i> Koumassi, Abidjan, CI</span>
+    </div>
+  </div>
+
+  <div class="footer-payments">
+    <div class="section-inner payments-inner">
+      <span>Paiements acceptés</span>
+      <div class="payment-badges">
+        <span class="payment-badge">Orange Money</span>
+        <span class="payment-badge">MTN MoMo</span>
+        <span class="payment-badge">Wave</span>
+        <span class="payment-badge">Visa</span>
+        <span class="payment-badge">Mastercard</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Kanza Market — Projet de démonstration, produits fictifs.</span>
+  </div>
+</footer>
+
+<!-- ============ QUICK VIEW MODAL ============ -->
+<div class="modal-overlay" id="quickViewOverlay">
+  <div class="modal-card" id="quickViewCard" role="dialog" aria-modal="true"></div>
+</div>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="cart-overlay" id="cartOverlay">
+  <aside class="cart-drawer" role="dialog" aria-modal="true" aria-label="Panier">
+    <div class="cart-head">
+      <h2>Votre panier</h2>
+      <button class="drawer-close" id="cartClose" aria-label="Fermer">✕</button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="cart-foot">
+      <div class="cart-subtotal">
+        <span>Sous-total</span>
+        <span id="cartSubtotal">0 FCFA</span>
+      </div>
+      <button class="btn btn-primary btn-checkout" id="checkoutBtn">Passer la commande</button>
+      <p class="cart-note">Panier de démonstration — aucune commande réelle n'est passée.</p>
+    </div>
+  </aside>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="app.js"></script>
+</body>
+</html>

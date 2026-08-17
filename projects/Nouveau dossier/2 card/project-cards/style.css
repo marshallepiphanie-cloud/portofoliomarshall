@@ -1,0 +1,349 @@
+/* ============================================
+   PROJECT CARDS — Design tokens
+   ============================================ */
+:root {
+  --bg-void: #0a0a0d;
+  --ink-white: #f5f5f7;
+  --ink-dim: rgba(245, 245, 247, 0.6);
+  --ink-faint: rgba(245, 245, 247, 0.35);
+
+  --card-a-1: #17415c;
+  --card-a-2: #0e2a3d;
+  --card-a-glow: #ffb238;
+
+  --card-b-1: #2b2b2b;
+  --card-b-2: #161616;
+  --card-b-glow: #ff4e33;
+
+  --font-display: "Bricolage Grotesque", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg-void);
+  color: var(--ink-white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+
+/* ============================================
+   Backdrop (dark blurred veil on expand)
+   ============================================ */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 6, 9, 0.65);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s var(--ease-out);
+  z-index: 5;
+}
+.backdrop.is-visible { opacity: 1; pointer-events: auto; }
+
+/* ============================================
+   Portfolio bar
+   ============================================ */
+.portfolio-bar {
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.portfolio-bar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 18px 32px;
+}
+
+.back-portfolio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-dim);
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+.back-portfolio-btn:hover { color: #fff; gap: 10px; }
+.back-portfolio-btn svg { width: 15px; height: 15px; stroke: currentColor; }
+
+/* ============================================
+   Stage
+   ============================================ */
+.stage {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 32px 80px;
+}
+
+.instruction {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+  margin: 0 0 34px;
+}
+
+.cards-row {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  gap: 28px;
+  width: 100%;
+  max-width: 1100px;
+  height: 540px;
+  perspective: 1400px;
+}
+
+/* ============================================
+   Project card — base state
+   ============================================ */
+.project-card {
+  position: relative;
+  flex: 1;
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: flex 0.55s var(--ease-out), transform 0.35s var(--ease-out), box-shadow 0.4s ease;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  will-change: transform;
+}
+
+.project-card:hover {
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+}
+
+.card-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.card-bg-a { background: linear-gradient(155deg, var(--card-a-1), var(--card-a-2) 70%); }
+.card-bg-a::after {
+  content: "";
+  position: absolute;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--card-a-glow), transparent 70%);
+  opacity: 0.35;
+  top: -60px; right: -60px;
+  filter: blur(10px);
+}
+
+.card-bg-b { background: linear-gradient(155deg, var(--card-b-1), var(--card-b-2) 70%); }
+.card-bg-b::after {
+  content: "";
+  position: absolute;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--card-b-glow), transparent 70%);
+  opacity: 0.3;
+  bottom: -60px; left: -40px;
+  filter: blur(10px);
+}
+
+/* Specular sheen following cursor (realism layer for 3D hover) */
+.card-sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+    circle 260px at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.16),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.project-card:hover .card-sheen { opacity: 1; }
+
+/* Badge — top-left */
+.card-badge {
+  position: absolute;
+  top: 22px; left: 22px;
+  z-index: 3;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  padding: 6px 14px;
+  backdrop-filter: blur(4px);
+  transform: translateZ(40px);
+}
+
+/* Close button — top-right, hidden until expanded */
+.card-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  z-index: 4;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: background 0.2s ease;
+  pointer-events: none;
+}
+.card-close:hover { background: rgba(255, 255, 255, 0.28); }
+
+/* Invisible full-cover click target */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+/* Content block */
+.card-content {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  padding: 0 28px 30px;
+  transform: translateZ(30px);
+  pointer-events: none;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.4vw, 34px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+  white-space: normal;
+}
+
+.card-title .letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: letter-in 0.6s var(--ease-out) forwards;
+}
+
+@keyframes letter-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hidden description — collapses to height 0 */
+.card-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  max-width: 420px;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s var(--ease-out), opacity 0.4s ease 0.05s, margin 0.5s var(--ease-out);
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 2px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease 0.15s, transform 0.4s var(--ease-out) 0.15s, border-color 0.2s ease;
+  pointer-events: none;
+}
+.card-link:hover { border-color: #fff; }
+.card-link svg { width: 14px; height: 14px; }
+
+/* ============================================
+   Expanded state
+   ============================================ */
+.project-card.is-active {
+  flex: 2.3;
+  z-index: 8;
+}
+
+.cards-row.has-active .project-card:not(.is-active) {
+  flex: 0.55;
+  filter: brightness(0.55) saturate(0.7);
+}
+
+.project-card.is-active .card-close {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  transition: opacity 0.35s var(--ease-spring) 0.3s, transform 0.35s var(--ease-spring) 0.3s, background 0.2s ease;
+}
+
+.project-card.is-active .card-desc {
+  max-height: 160px;
+  opacity: 1;
+  margin-top: 12px;
+}
+
+.project-card.is-active .card-link {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.project-card.is-active .card-content {
+  padding-bottom: 44px;
+}
+
+.project-card.is-active .card-overlay {
+  pointer-events: none;
+}
+
+/* ============================================
+   Reduced motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .project-card, .backdrop, .card-desc, .card-close, .card-link { transition: none !important; }
+  .card-title .letter { animation: none !important; opacity: 1; transform: none; }
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 860px) {
+  .cards-row { flex-direction: column; height: auto; perspective: none; }
+  .project-card { flex: 0 0 260px; height: 260px; transform: none !important; }
+  .project-card.is-active { flex: 0 0 420px; height: 420px; }
+  .cards-row.has-active .project-card:not(.is-active) { flex: 0 0 140px; height: 140px; }
+}
+
+@media (max-width: 480px) {
+  .card-content { padding: 0 20px 22px; }
+  .card-desc { max-width: 100%; }
+}

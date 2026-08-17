@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini CRM | Démo Vecteur Digital</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- ChartJS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background glows -->
+    <div class="blob-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- 1. LOGIN SCREEN -->
+    <div class="login-container" id="login-container">
+        <div class="glass-card login-card">
+            <div class="login-header">
+                <div class="logo">
+                    <span class="logo-icon"><i data-lucide="cpu"></i></span>
+                    <span class="logo-text">Vecteur<span class="gradient-text">CRM</span></span>
+                </div>
+                <h2>Connexion Espace Démo</h2>
+                <p>Identifiants pré-remplis pour la démonstration.</p>
+            </div>
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <input type="email" id="login-email" required value="digitalvecteur@gmail.com" placeholder=" ">
+                    <label for="login-email">Adresse E-mail</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="login-password" required value="admin" placeholder=" ">
+                    <label for="login-password">Mot de passe</label>
+                </div>
+                <button type="submit" class="btn btn-submit" id="login-btn">
+                    <span>Accéder au CRM</span>
+                    <i data-lucide="log-in"></i>
+                </button>
+            </form>
+            <div class="demo-notice">
+                <p><strong>Note :</strong> Ce projet simule une base de données PostgreSQL/MySQL gérée par une API
+                    Node.js Express locale.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. MAIN CRM DASHBOARD (Hidden initially) -->
+    <div class="crm-app" id="crm-app" style="display: none;">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon"><i data-lucide="cpu"></i></span>
+                    <span class="logo-text">Vecteur<span class="gradient-text">CRM</span></span>
+                </div>
+            </div>
+
+            <div class="user-profile">
+                <div class="avatar"><i data-lucide="user"></i></div>
+                <div class="user-info">
+                    <span class="user-name" id="user-display-name">Lucas Vessier</span>
+                    <span class="user-role">Développeur PME</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-btn active" data-tab="dashboard-tab">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Tableau de bord</span>
+                </button>
+                <button class="nav-btn" data-tab="clients-tab">
+                    <i data-lucide="users"></i>
+                    <span>Clients</span>
+                </button>
+                <button class="nav-btn" data-tab="invoices-tab">
+                    <i data-lucide="file-text"></i>
+                    <span>Devis & Factures</span>
+                </button>
+                <button class="nav-btn" data-tab="stats-tab">
+                    <i data-lucide="bar-chart-3"></i>
+                    <span>Statistiques</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-logout" id="btn-logout">
+                    <i data-lucide="log-out"></i>
+                    <span>Déconnexion</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Workspace Area -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1 id="tab-title">Tableau de bord</h1>
+                <div class="header-actions">
+                    <a href="../../index.html" class="back-portfolio-btn">
+                        <i data-lucide="arrow-left"></i>
+                        <span>Retour Portfolio</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- TAB 1: DASHBOARD HOME -->
+            <section class="tab-pane active" id="dashboard-tab">
+                <!-- KPI metrics cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card glass-card">
+                        <div class="kpi-icon blue"><i data-lucide="users"></i></div>
+                        <div class="kpi-data">
+                            <span class="kpi-title">Clients Actifs</span>
+                            <span class="kpi-value" id="kpi-clients">0</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card glass-card">
+                        <div class="kpi-icon purple"><i data-lucide="file-check-2"></i></div>
+                        <div class="kpi-data">
+                            <span class="kpi-title">Factures Édités</span>
+                            <span class="kpi-value" id="kpi-invoices">0</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card glass-card">
+                        <div class="kpi-icon green"><i data-lucide="dollar-sign"></i></div>
+                        <div class="kpi-data">
+                            <span class="kpi-title">Chiffre d'Affaires</span>
+                            <span class="kpi-value" id="kpi-revenue">0 €</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card glass-card">
+                        <div class="kpi-icon yellow"><i data-lucide="clock"></i></div>
+                        <div class="kpi-data">
+                            <span class="kpi-title">En attente</span>
+                            <span class="kpi-value" id="kpi-pending">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-details">
+                    <!-- Graphique -->
+                    <div class="chart-container glass-card">
+                        <h3 class="card-title">Courbe d'Activité & Ventes</h3>
+                        <div class="canvas-wrapper">
+                            <canvas id="revenue-chart"></canvas>
+                        </div>
+                    </div>
+                    <!-- Activités Récentes -->
+                    <div class="recent-container glass-card">
+                        <h3 class="card-title">Activités Récentes</h3>
+                        <div class="activity-list" id="activity-list">
+                            <!-- Injected by JS -->
+                            <div class="loading-spinner"><i data-lucide="loader-2"></i> Chargement...</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: CLIENTS PANEL -->
+            <section class="tab-pane" id="clients-tab">
+                <div class="table-actions glass-card">
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="client-search" placeholder="Rechercher un client ou une entreprise...">
+                    </div>
+                    <button class="btn btn-primary" id="btn-add-client">
+                        <i data-lucide="plus"></i>
+                        <span>Nouveau Client</span>
+                    </button>
+                </div>
+
+                <div class="table-container glass-card">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>Email</th>
+                                <th>Téléphone</th>
+                                <th>Entreprise</th>
+                                <th>Status</th>
+                                <th class="text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clients-table-body">
+                            <!-- Injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- TAB 3: INVOICES PANEL -->
+            <section class="tab-pane" id="invoices-tab">
+                <div class="table-actions glass-card">
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="invoice-search" placeholder="Rechercher par numéro ou client...">
+                    </div>
+                    <button class="btn btn-primary" id="btn-add-invoice">
+                        <i data-lucide="plus"></i>
+                        <span>Créer une Facture</span>
+                    </button>
+                </div>
+
+                <div class="table-container glass-card">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Numéro</th>
+                                <th>Client</th>
+                                <th>Date d'émission</th>
+                                <th>Échéance</th>
+                                <th>Montant</th>
+                                <th>Status</th>
+                                <th class="text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoices-table-body">
+                            <!-- Injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- TAB 4: STATISTICS PANEL -->
+            <section class="tab-pane" id="stats-tab">
+                <div class="stats-grid">
+                    <div class="chart-card glass-card">
+                        <h3 class="card-title">Répartition des Statuts de Factures</h3>
+                        <div class="canvas-wrapper pie-chart-wrapper">
+                            <canvas id="invoice-status-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card glass-card">
+                        <h3 class="card-title">Chiffre d'Affaires par Client</h3>
+                        <div class="canvas-wrapper">
+                            <canvas id="client-sales-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- CLIENT MODAL (Add & Edit) -->
+    <div class="modal" id="client-modal">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h3 id="client-modal-title">Nouveau Client</h3>
+                <button class="modal-close" id="client-modal-close"><i data-lucide="x"></i></button>
+            </div>
+            <form id="client-form" class="modal-form">
+                <input type="hidden" id="client-id-field">
+                <div class="form-group">
+                    <input type="text" id="client-name" required placeholder=" ">
+                    <label for="client-name">Nom complet</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="client-email" required placeholder=" ">
+                    <label for="client-email">Email professionnel</label>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="client-phone" placeholder=" ">
+                    <label for="client-phone">Téléphone</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="client-company" required placeholder=" ">
+                    <label for="client-company">Nom de l'entreprise</label>
+                </div>
+                <div class="form-group">
+                    <select id="client-status" required>
+                        <option value="actif">Actif</option>
+                        <option value="inactif">Inactif</option>
+                    </select>
+                    <label for="client-status">Statut de relation</label>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="btn-cancel-client">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- INVOICE MODAL (Add & Edit) -->
+    <div class="modal" id="invoice-modal">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h3 id="invoice-modal-title">Créer une Facture</h3>
+                <button class="modal-close" id="invoice-modal-close"><i data-lucide="x"></i></button>
+            </div>
+            <form id="invoice-form" class="modal-form">
+                <input type="hidden" id="invoice-id-field">
+                <div class="form-group">
+                    <input type="text" id="invoice-number" required placeholder=" " value="FAC-2026-">
+                    <label for="invoice-number">Numéro de Facture</label>
+                </div>
+                <div class="form-group">
+                    <select id="invoice-client" required>
+                        <!-- Injected by JS -->
+                    </select>
+                    <label for="invoice-client">Sélectionner un Client</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="invoice-amount" required step="0.01" min="0" placeholder=" ">
+                    <label for="invoice-amount">Montant (€)</label>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="invoice-date" required placeholder=" ">
+                    <label for="invoice-date">Date d'émission</label>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="invoice-due-date" required placeholder=" ">
+                    <label for="invoice-due-date">Date d'échéance</label>
+                </div>
+                <div class="form-group">
+                    <select id="invoice-status" required>
+                        <option value="brouillon">Brouillon</option>
+                        <option value="envoye">Envoyé</option>
+                        <option value="paye">Payé</option>
+                        <option value="retard">En retard</option>
+                    </select>
+                    <label for="invoice-status">État de paiement</label>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="btn-cancel-invoice">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- App Logic Script -->
+    <script src="app.js"></script>
+
+</body>
+
+</html>

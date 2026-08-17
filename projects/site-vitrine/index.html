@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hélios Énergie & BTP | Démo Vitrine PME</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon"><i data-lucide="sun"></i></span>
+                <span class="logo-text">Hélios<span class="gradient-text">Énergie</span></span>
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#accueil" class="nav-link active">Accueil</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#realisations" class="nav-link">Réalisations</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="#contact" class="btn btn-nav">
+                    <span>Devis Gratuit</span>
+                    <i data-lucide="file-text"></i>
+                </a>
+            </div>
+            <button class="mobile-toggle" id="mobile-toggle">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="accueil" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content reveal">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        <span>Énergie Solaire & BTP Écologique</span>
+                    </div>
+                    <h1>Construisons ensemble <br>l'énergie de demain</h1>
+                    <p>Hélios Énergie et BTP accompagne les particuliers et entreprises dans leur transition énergétique avec des solutions de panneaux solaires, d'isolation thermique et d'éco-construction de haute performance.</p>
+                    <div class="hero-actions">
+                        <a href="#realisations" class="btn btn-primary">Découvrir nos chantiers</a>
+                        <a href="#contact" class="btn btn-secondary">Demander une étude</a>
+                    </div>
+                </div>
+                <div class="hero-visual reveal delay-1">
+                    <div class="building-card">
+                        <div class="card-bg-gradient"></div>
+                        <div class="building-overlay">
+                            <span class="status-tag"><i data-lucide="check"></i> Certifié RGE</span>
+                            <h3>Projet Solaire - Résidence Éco-Vallée</h3>
+                            <p>Installation de 24 panneaux photovoltaïques et rénovation d'isolation thermique globale.</p>
+                            <div class="stats-row">
+                                <div class="stat-item">
+                                    <span class="val">-60%</span>
+                                    <span class="lbl">Facture élec.</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="val">A+</span>
+                                    <span class="lbl">Bilan carbone</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <h2>Nos Expertises Énergétiques & BTP</h2>
+                    <p>Des prestations complètes réalisées par nos artisans qualifiés RGE pour valoriser votre patrimoine.</p>
+                </div>
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card glass-card reveal">
+                        <div class="icon-box"><i data-lucide="sun"></i></div>
+                        <h3>Installation Photovoltaïque</h3>
+                        <p>Étude de rendement, pose de panneaux solaires de dernière génération et raccordement au réseau pour l'autoconsommation ou la revente.</p>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="service-card glass-card reveal delay-1">
+                        <div class="icon-box"><i data-lucide="thermometer-snowflake"></i></div>
+                        <h3>Isolation Thermique RGE</h3>
+                        <p>Isolation par l'extérieur (ITE), combles et planchers pour stopper les ponts thermiques et réduire immédiatement vos factures de chauffage.</p>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="service-card glass-card reveal delay-2">
+                        <div class="icon-box"><i data-lucide="home"></i></div>
+                        <h3>Éco-Construction & BTP</h3>
+                        <p>Chantiers de construction, surélévation et rénovation générale respectant les normes environnementales les plus exigeantes (RE2020).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Réalisations Section (Filterable Gallery) -->
+        <section id="realisations" class="gallery-section">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <h2>Nos Réalisations Récentes</h2>
+                    <p>Découvrez nos chantiers phares en image à travers nos différents domaines d'intervention.</p>
+                </div>
+                
+                <!-- Gallery Filters -->
+                <div class="gallery-filters reveal">
+                    <button class="filter-btn active" data-filter="all">Tous nos projets</button>
+                    <button class="filter-btn" data-filter="solaire">Solaire</button>
+                    <button class="filter-btn" data-filter="btp">BTP & Rénovation</button>
+                    <button class="filter-btn" data-filter="isolation">Isolation</button>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="gallery-grid">
+                    <!-- Project 1 -->
+                    <div class="gallery-item glass-card reveal" data-category="solaire">
+                        <div class="item-img img-solaire-1"></div>
+                        <div class="item-info">
+                            <span class="item-tag">Solaire</span>
+                            <h3>Centrale Solaire Agricole</h3>
+                            <p>Pose de 120 panneaux sur hangar de stockage agricole, Drôme.</p>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="gallery-item glass-card reveal delay-1" data-category="btp">
+                        <div class="item-img img-btp-1"></div>
+                        <div class="item-info">
+                            <span class="item-tag">BTP & Construction</span>
+                            <h3>Villa Passive Bois</h3>
+                            <p>Construction d'une maison passive à ossature bois (Label RE2020), Lyon.</p>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="gallery-item glass-card reveal delay-2" data-category="isolation">
+                        <div class="item-img img-isolation-1"></div>
+                        <div class="item-info">
+                            <span class="item-tag">Isolation</span>
+                            <h3>Rénovation Énergétique ITE</h3>
+                            <p>Isolation thermique par l'extérieur de 14 logements collectifs, Grenoble.</p>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="gallery-item glass-card reveal" data-category="solaire">
+                        <div class="item-img img-solaire-2"></div>
+                        <div class="item-info">
+                            <span class="item-tag">Solaire</span>
+                            <h3>Autoconsommation Résidentielle</h3>
+                            <p>Système de batterie intelligente et 12 panneaux solaires, Annecy.</p>
+                        </div>
+                    </div>
+                    <!-- Project 5 -->
+                    <div class="gallery-item glass-card reveal delay-1" data-category="btp">
+                        <div class="item-img img-btp-2"></div>
+                        <div class="item-info">
+                            <span class="item-tag">BTP & Construction</span>
+                            <h3>Surélévation de Bureau</h3>
+                            <p>Extension d'un étage en charpente métallique et vitrages isolants, Valence.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-box glass-card reveal">
+                    <div class="text-center">
+                        <h2>Demandez une Étude Gratuite</h2>
+                        <p>Nos experts BTP et photovoltaïque étudient votre projet gratuitement et vous adressent une simulation sous 48h.</p>
+                    </div>
+                    <form id="quote-form" class="quote-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="name" required placeholder=" ">
+                                <label for="name">Nom / Prénom</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" required placeholder=" ">
+                                <label for="email">Adresse E-mail</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select id="project-type" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="photovoltaique">Installation de panneaux solaires</option>
+                                <option value="isolation">Isolation extérieure / combles</option>
+                                <option value="btp">Travaux de maçonnerie / Construction</option>
+                                <option value="global">Rénovation énergétique globale</option>
+                            </select>
+                            <label for="project-type">Type de travaux envisagés</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="details" rows="4" required placeholder=" "></textarea>
+                            <label for="details">Description de votre projet (surface, budget, contraintes...)</label>
+                        </div>
+                        <button type="submit" class="btn btn-submit">
+                            <span>Calculer mon éligibilité</span>
+                            <i data-lucide="calculator"></i>
+                        </button>
+                    </form>
+                    <div class="success-box" id="success-box">
+                        <i data-lucide="check-circle"></i>
+                        <h3>Merci pour votre demande !</h3>
+                        <p>Un conseiller technique Hélios Énergie étudie votre dossier et vous contactera par téléphone sous 48 heures.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-info">
+                <a href="#" class="logo">
+                    <span class="logo-icon"><i data-lucide="sun"></i></span>
+                    <span class="logo-text">Hélios<span class="gradient-text">Énergie</span></span>
+                </a>
+                <p>Artisans BTP qualifiés RGE au service de la performance énergétique de votre bâtiment.</p>
+            </div>
+            <div class="footer-links">
+                <a href="../../index.html" class="portfolio-btn"><i data-lucide="arrow-left"></i> Retour Portfolio</a>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Hélios Énergie & BTP. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+</html>

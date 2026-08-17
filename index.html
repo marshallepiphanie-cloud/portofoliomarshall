@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vecteur Digital | Digitalisation & Web de Confiance pour PME</title>
+    <meta name="description"
+        content="Propulsez votre PME dans l'ère numérique. Création de sites internet, d'outils d'automatisation et de solutions digitales sur-mesure de haute performance.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Animated Blobs -->
+    <div class="blob-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" id="nav-logo">
+                <span class="logo-icon"><i data-lucide="cpu"></i></span>
+                <span class="logo-text">Vecteur<span class="gradient-text">Digital</span></span>
+            </a>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#accueil" class="nav-link active" id="link-accueil">Accueil</a>
+                <a href="#services" class="nav-link" id="link-services">Services</a>
+                <a href="#projets" class="nav-link" id="link-projets">Projets</a>
+                <a href="#contact" class="nav-link" id="link-contact">Contact</a>
+                <a href="projects/a-propos/index.html" class="nav-link" id="link-a-propos">À propos</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="#contact" class="btn btn-nav" id="btn-nav-contact">
+                    <span>Parler à un expert</span>
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu principal">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="accueil" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content reveal">
+                    <div class="badge" id="hero-badge">
+                        <span class="badge-dot"></span>
+                        <span>Digitalisation pour PME</span>
+                    </div>
+                    <h1 class="hero-title" id="hero-title">
+                        Propulsez votre entreprise dans <br>
+                        <span class="gradient-text animate-gradient">l'ère numérique</span>
+                    </h1>
+                    <p class="hero-subtitle" id="hero-subtitle">
+                        Nous concevons des solutions web modernes, rapides et sur-mesure pour automatiser vos tâches
+                        quotidiennes et démultiplier votre visibilité en ligne.
+                    </p>
+                    <div class="hero-actions" id="hero-actions">
+                        <a href="#projets" class="btn btn-primary" id="btn-view-projects">
+                            <span>Voir mes projets</span>
+                            <i data-lucide="chevron-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary" id="btn-hero-contact">
+                            <span>Discuter de mon projet</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual reveal delay-1">
+                    <div class="photo-frame-container">
+                        <div class="photo-glow"></div>
+                        <div class="photo-card-inner">
+                            <!-- Front Side (Photo) -->
+                            <div class="photo-card-front glass-card">
+                                <img src="profile.jpg" alt="Votre Photo" class="profile-photo" id="profile-photo">
+                                <div class="photo-overlay"></div>
+                            </div>
+                            <!-- Back Side (About Text) -->
+                            <div class="photo-card-back glass-card">
+                                <div class="back-content">
+                                    <span class="back-badge">À Propos</span>
+                                    <p class="back-text">
+                                        Je développe des solutions web modernes pour aider les entreprises à digitaliser
+                                        leurs activités. Je conçois des applications performantes, sécurisées et
+                                        adaptées aux besoins des PME.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Floating Badge -->
+                        <div class="floating-badge glass-card">
+                            <span class="badge-icon"><i data-lucide="check-circle-2"></i></span>
+                            <div class="badge-text">
+                                <span class="badge-title">AGUETON EPIPHANIE</span>
+                                <span class="badge-subtitle">Operateur Digital</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accroche Valeur (Catchphrase Section) -->
+        <section class="value-statement-section reveal">
+            <div class="container text-center">
+                <div class="value-statement-box glass-card">
+                    <div class="quote-icon"><i data-lucide="quote"></i></div>
+                    <blockquote class="value-quote" id="value-quote">
+                        "La digitalisation n'est pas un coût, c'est l'accélérateur numéro un de la rentabilité et de la
+                        liberté des entrepreneurs modernes."
+                    </blockquote>
+                    <p class="value-author">— Vecteur Digital</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <h2 class="section-title">Nos expertises à votre service</h2>
+                    <p class="section-subtitle">Des outils robustes pensés exclusivement pour simplifier l'activité des
+                        petites et moyennes entreprises.</p>
+                </div>
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card glass-card reveal delay-1">
+                        <div class="service-icon-box"><i data-lucide="panels-top-left"></i></div>
+                        <h3 class="service-card-title">Sites Web & E-commerce</h3>
+                        <p class="service-card-desc">Conception de plateformes modernes, ultra-rapides et optimisées
+                            pour convertir vos visiteurs en clients fidèles.</p>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="service-card glass-card reveal delay-2">
+                        <div class="service-icon-box"><i data-lucide="zap"></i></div>
+                        <h3 class="service-card-title">Automatisation & Outils Métier</h3>
+                        <p class="service-card-desc">Fini la saisie manuelle. Nous connectons vos logiciels (CRM, ERP)
+                            pour faire gagner des heures de travail à vos équipes.</p>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="service-card glass-card reveal delay-3">
+                        <div class="service-icon-box"><i data-lucide="search"></i></div>
+                        <h3 class="service-card-title">Référencement & Visibilité</h3>
+                        <p class="service-card-desc">Optimisation SEO avancée pour positionner votre entreprise locale
+                            en tête des résultats de recherche Google.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projets" class="projects-section">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <h2 class="section-title">Projets de Transformation</h2>
+                    <p class="section-subtitle">Découvrez comment nous aidons concrètement les PME à franchir le pas du
+                        numérique.</p>
+                </div>
+                <div class="projects-grid">
+                    <!-- Project 1: Mini CRM -->
+                    <a href="projects/mini-crm/index.html" class="project-card glass-card reveal" data-tilt
+                        style="text-decoration: none; color: inherit; display: block;">
+                        <div class="project-image-placeholder img-1">
+                            <span class="project-tag">Node + SQL</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Mini CRM</h3>
+                            <p class="project-description">Gestion clients, facturation, statistiques en temps réel et
+                                authentification sécurisée.</p>
+                            <div class="project-result">
+                                <span class="result-number">Full-Stack</span>
+                                <span class="result-label">React + Node + SQL</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Project 2: Site Vitrine BTP / Énergie -->
+                    <a href="projects/project-cards/index.html" class="project-card glass-card reveal delay-1" data-tilt
+                        style="text-decoration: none; color: inherit; display: block;">
+                        <div class="project-image-placeholder img-2">
+                            <span class="project-tag">Vitrine PME</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Helios Énergie & BTP</h3>
+                            <p class="project-description">Site vitrine moderne pour une entreprise de BTP avec
+                                services, réalisations et formulaire de contact.</p>
+                            <div class="project-result">
+                                <span class="result-number">Vitrine</span>
+                                <span class="result-label">Responsive & Animé</span>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Project 3: Admin Dashboard -->
+                    <a href="projects/admin-dashboard/index.html" class="project-card glass-card reveal delay-2"
+                        data-tilt style="text-decoration: none; color: inherit; display: block;">
+                        <div class="project-image-placeholder img-3">
+                            <span class="project-tag">Administration</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Tableau de Bord Admin</h3>
+                            <p class="project-description">Panneau de contrôle avec gestion des utilisateurs, rôles
+                                (Admin/Éditeur) et graphiques analytiques.</p>
+                            <div class="project-result">
+                                <span class="result-number">Dashboard</span>
+                                <span class="result-label">Gestion de Rôles</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-box glass-card reveal">
+                    <div class="contact-header text-center">
+                        <h2 class="section-title">Démarrons votre projet</h2>
+                        <p class="section-subtitle">
+                            Expliquez-nous vos défis ou contactez-nous directement au
+                            <a href="tel:0500554826" class="phone-link">05 00 55 48 26</a>.
+                        </p>
+                    </div>
+                    <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit"
+                        method="POST">
+                        <!-- Clé Web3Forms pour recevoir les emails sur digitalvecteur@gmail.com -->
+                        <input type="hidden" name="access_key" value="38e0298b-8c0e-4a45-bfb3-9604d4e25d8e">
+                        <input type="hidden" name="subject" value="Nouveau message - Vecteur Digital">
+                        <input type="hidden" name="from_name" value="Site Vecteur Digital">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="form-name" name="name" required placeholder=" ">
+                                <label for="form-name">Votre Nom</label>
+                                <span class="focus-border"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="form-email" name="email" required placeholder=" ">
+                                <label for="form-email">Votre Adresse E-mail</label>
+                                <span class="focus-border"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="tel" id="form-phone" name="phone" placeholder=" ">
+                                <label for="form-phone">Votre Téléphone (Optionnel)</label>
+                                <span class="focus-border"></span>
+                            </div>
+                            <div class="form-group">
+                                <select id="form-type" name="project_type" required>
+                                    <option value="" disabled selected hidden></option>
+                                    <option value="site">Site internet vitrine ou e-commerce</option>
+                                    <option value="automation">Automatisation & Gain de temps</option>
+                                    <option value="seo">SEO & Visibilité Google</option>
+                                    <option value="autre">Autre projet digital</option>
+                                </select>
+                                <label for="form-type">Type de projet</label>
+                                <span class="focus-border"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="form-message" name="message" required rows="5" placeholder=" "></textarea>
+                            <label for="form-message">Dites-nous en plus sur vos besoins...</label>
+                            <span class="focus-border"></span>
+                        </div>
+                        <button type="submit" class="btn btn-submit" id="btn-submit">
+                            <span>Envoyer ma demande</span>
+                            <i data-lucide="send" id="submit-icon"></i>
+                        </button>
+                    </form>
+                    <div class="success-message" id="success-message">
+                        <div class="success-icon"><i data-lucide="check-circle-2"></i></div>
+                        <h3>Demande envoyée !</h3>
+                        <p>Merci pour votre message. Nous l'analysons avec soin et revenons vers vous dans les plus
+                            brefs délais.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-info">
+                <a href="#" class="logo">
+                    <span class="logo-icon"><i data-lucide="cpu"></i></span>
+                    <span class="logo-text">Vecteur<span class="gradient-text">Digital</span></span>
+                </a>
+                <p class="footer-desc">Accompagner la transition numérique des PME pour bâtir les entreprises de demain.
+                </p>
+
+                <p class="footer-phone">
+                    <i data-lucide="message-circle"></i>
+                    <a href="https://wa.me/2250500554826" target="_blank" rel="noopener">05 00 55 48 26</a>
+                </p>
+                <p class="footer-phone">
+                    <i data-lucide="mail"></i>
+                    <a href="mailto:digitalvecteur@gmail.com">Adresse Email</a>
+                </p>
+            </div>
+            <div class="footer-links">
+                <a href="#accueil">Accueil</a>
+                <a href="#services">Services</a>
+                <a href="#projets">Projets</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom text-center marquee-wrap">
+            <div class="marquee-track">
+                <span>Marshall3.6© 2026 — Transformation digitale &amp; outils sur-mesure.</span>
+                <span>Marshall3.6© 2026 — Transformation digitale &amp; outils sur-mesure.</span>
+                <span>Marshall3.6© 2026 — Transformation digitale &amp; outils sur-mesure.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Scripts -->
+    <script src="app.js"></script>
+</body>
+
+</html>
